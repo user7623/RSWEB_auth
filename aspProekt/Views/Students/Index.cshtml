@@ -1,0 +1,177 @@
+﻿@model IEnumerable<aspProekt.Models.Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h1>Students</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<form asp-controller="Students" asp-action="Index" method="get">
+    <p>
+        First Name: <input type="text" name="SearchName">
+
+        Last Name: <input type="text" name="SearchLastName">
+
+        Index(StudentID): <input type="text" name="SearchStudentID">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<hr />
+<form asp-controller="Students" asp-action="searchByCourse" method="get">
+    <p>
+        Cours ID: <input type="text" name="SearchCourse">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Picture</p>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EnrolmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AcquiredCredits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentSemester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationLevel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.pic)" height="25" width="25" alt="noImage" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrolmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcquiredCredits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentSemester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EducationLevel)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>|
+                    <a asp-action="Subjects" asp-route-id="@item.ID">Subjects</a>|
+                    <a asp-action="addPicture" asp-route-id="@item.ID">add picture</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@model IEnumerable<aspProekt.Models.Student>
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EnrolmentDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AcquiredCredits)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentSemester)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EducationLevel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.pic)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrolmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcquiredCredits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentSemester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EducationLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pic)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

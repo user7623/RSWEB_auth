@@ -1,0 +1,64 @@
+﻿@*@model SWEB_app.Models.Course*@
+@model IEnumerable<aspProekt.Models.Course>
+@{
+    ViewData["Title"] = "CoursesList";
+}
+<h1>Courses List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            @*.Courses[0]*@
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Programe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstTeacherID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTeacherID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Credits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Programe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EducationLevel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstTeacherID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecondTeacherID)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
